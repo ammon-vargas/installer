@@ -1,4 +1,4 @@
-# 🔐 GitHub Token (ideally use environment variable or secure prompt in production)
+# 🔐 GitHub Token (embedded for unattended execution)
 $token = "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"
 
 function Invoke-PrivateScript {
@@ -45,5 +45,5 @@ function Show-InstallMenu {
     }
 }
 
-# 🧭 Launch the menu
+# 🚀 Launch the menu
 Show-InstallMenu -token $token
