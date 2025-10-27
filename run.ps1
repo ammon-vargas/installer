@@ -8,7 +8,12 @@ function Invoke-PrivateScript {
         [string]$path
     )
 
-    $headers = @{ Authorization = "token $token" }
+    $headers = @{
+        Authorization = "Bearer $token"
+        Accept = "application/vnd.github.object"
+        "X-GitHub-Api-Version" = "2022-11-28"
+    }
+
     $url = "https://api.github.com/repos/$repo/contents/$path"
 
     try {
