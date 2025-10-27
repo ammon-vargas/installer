@@ -4,8 +4,8 @@ $token = "github_pat_11BWAOIYI07XhaYU61il2s_K2qhI2Nwhyouu63caOEnjl0fRtWAOVbBGHMl
 function Invoke-PrivateScript {
     param (
         [string]$token,
-        [string]$owner = "ammon-vargas",
-        [string]$repo = "automation",
+        [string]$owner,
+        [string]$repo,
         [string]$path
     )
 
@@ -31,9 +31,7 @@ function Invoke-PrivateScript {
 
 function Show-InstallMenu {
     param (
-        [string]$token,
-        [string]$owner = "ammon-vargas",
-        [string]$repo = "automation"
+        [string]$token
     )
 
     Write-Host "`n🛠️ Validator-Grade Install Menu" -ForegroundColor Cyan
@@ -45,9 +43,9 @@ function Show-InstallMenu {
     $choice = Read-Host "Select an option (1-4)"
 
     switch ($choice) {
-        '1' { Invoke-PrivateScript -token $token -owner $owner -repo $repo -path "post-install.ps1" }
-        '2' { Invoke-PrivateScript -token $token -owner $owner -repo $repo -path "install-tailscale.ps1" }
-        '3' { Invoke-PrivateScript -token $token -owner $owner -repo $repo -path "bios-check.ps1" }
+        '1' { Invoke-PrivateScript -token $token -owner "ammon-vargas" -repo "automation" -path "post-install.ps1" }
+        '2' { Invoke-PrivateScript -token $token -owner "ammon-vargas" -repo "automation" -path "install-tailscale.ps1" }
+        '3' { Invoke-PrivateScript -token $token -owner "ammon-vargas" -repo "automation" -path "bios-check.ps1" }
         '4' { Write-Host "👋 Exiting..." -ForegroundColor Yellow }
         default { Write-Host "⚠️ Invalid selection. Try again." -ForegroundColor Red }
     }
